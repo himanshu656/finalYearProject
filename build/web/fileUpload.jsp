@@ -58,7 +58,7 @@
                                     <form name="" action="UploadActions" method="post" enctype="multipart/form-data">
                                         <table width="70%">
                                             <tr style="height: 40px;"><td>Choose File</td><td> <input name="file" type="file" id="file"/>    </td></tr>
-                                            <tr style="height: 40px;"><td>No.of Cloud</td><td> <%=a%>    </td></tr>
+                                          <!--  <tr style="height: 40px;"><td>No.of Cloud</td><td> <%=a%>    </td></tr> -->
                                             <tr style="height: 40px;"><td></td><td><input type="submit" value="Upload" style="height: 25px;width: 90px;"/></td></tr>
                                         </table>
                                     </form>

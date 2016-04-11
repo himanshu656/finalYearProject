@@ -35,7 +35,7 @@
                     <div id="page-bgbtm">
                         <div id="content">
                             <div class="post">
-                                <h2 class="title"><a href="#">Welcome to Cloud Computing Security</a></h2>                                
+                                <h2 class="title"><a href="#">Welcome to Cloud Computing </a></h2>                                
                                 <div style="clear: both;">&nbsp;</div>
                                 <div class="entry">
                                     <p>The use of cloud computing has increased rapidly in many organizations. Cloud computing provides many benefits in terms of low cost and accessibility of data. Ensuring the security of cloud computing is a major factor in the cloud computing environment, as users often store sensitive information with cloud storage providers but these providers may be untrusted. Dealing with ?single cloud? providers is predicted to become less popular with customers due to risks of service availability failure and the possibility of malicious insiders in the single cloud. A movement towards ?multi-clouds?, or in other words, ?interclouds? or ?cloud-of-clouds? has emerged recently. This paper surveys recent research related to single and multi-cloud security and addresses possible solutions. It is found that the research into the use of multi-cloud providers to maintain security has received less attention from the research community than has the use of single clouds. This work aims to promote the use of multi-clouds due to its ability to reduce security risks that affect the cloud computing user.</p>                                    

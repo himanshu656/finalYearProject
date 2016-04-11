@@ -53,7 +53,7 @@
                                             <th>Ip</th>
                                             <th>User</th>
                                             <th>Status</th>
-                                            <th>view</th>
+                                           <!-- <th>view</th> -->
                                         </tr>
                                         <%
 
@@ -67,7 +67,7 @@
                                             <td><%=rs.getString("ip")%></td>
                                             <td><%=rs.getString("uname")%></td>
                                             <td><%=rs.getString("status")%></td>
-                                            <td><a href="updateCloud.jsp?ip=<%=rs.getString("ip")%>">view </a></td>
+                                           <!-- <td><a href="updateCloud.jsp?ip=<%=rs.getString("ip")%>">view </a></td> -->
                                         </tr>
 
                                         <%}

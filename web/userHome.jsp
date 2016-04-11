@@ -49,12 +49,12 @@
                                     <table border="1" width="100%" cellpadding="0" cellspacing="0">
                                         <tr>
                                             <th>User</th>
-                                            <th>FileName</th>
-                                            <th>Status</th>
-                                            <th>Ip</th>
-                                            <th>Date</th>
-                                            <th>Action</th>
-                                            <th>Download</th>
+                                            <!--<th>FileName</th> -->
+                                            <th>Age</th>
+                                            <th>Email</th>
+                                            <th>Mobile No.</th>
+                                            <th>Gender</th>
+                                           <!-- <th>Download</th> -->
                                         </tr>
                                         <%
 
@@ -65,16 +65,16 @@
                                             ResultSet rs = pstm.executeQuery();
                                             while (rs.next()) {%>
                                         <tr>
-                                            <td><%=rs.getString(1)%></td>
+                                           <!-- <td><%=rs.getString(1)%></td> -->
                                             <td><%=rs.getString(2)%></td>
                                             <td><%=rs.getString(3)%></td>
                                             <td><%=rs.getString(4)%></td>
                                             <td><%=rs.getString(5)%></td>
-                                            <td><%=rs.getString(6)%></td>
+                                            <td><%=rs.getString(6)%></td> 
                                             <% if (rs.getString(3).contains("s")) {%>
                                             <td><a href="FileDownload?ip=<%=rs.getString(4)%>&filename=<%=rs.getString(2)%>" style="text-decoration: none;">Click Here</a></td>
                                             <%} else {%>
-                                            <td></td>
+                                           <!-- <td></td>-->
                                             <%}%>
                                         </tr>
 

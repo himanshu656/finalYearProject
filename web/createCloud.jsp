@@ -48,7 +48,7 @@
                                         <table width="90%">
                                             <tr style="height: 40px;"><td>Cloud Ip:</td><td><input type="text" size="30" style="height: 25px;" id="ip" name="ip"/></td></tr>
                                             <tr style="height: 40px;"><td>User Name</td><td><input type="text" size="30" style="height: 25px;" id="uname" name="uname"/></td></tr>
-                                            <tr style="height: 40px;"><td>Password</td><td><input type="text" size="30" style="height: 25px;" id="password" name="password"/></td></tr>
+                                            <tr style="height: 40px;"><td>Password</td><td><input type="password" size="30" style="height: 25px;" id="password" name="password"/></td></tr>
                                             <tr style="height: 40px;"><td>Status</td><td><input type="radio" name="status" id="status" value="Active" /> Active
                                                     <input type="radio" name="status" id="status" value="Disable" /> Disable</td></tr>
                                             <tr><td></td><td><input type="submit" value="Submit"/></td></tr>

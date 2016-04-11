@@ -74,6 +74,7 @@ public class UploadActions extends HttpServlet {
        //-----------------------  Creating folder Program--------------------
             HttpSession se= request.getSession();
             String user_email=(String)se.getAttribute("user_email");
+            String user_name=(String)se.getAttribute("userid");
             File theDir = new File("C:\\Cloud\\"+user_email);
 
             // if the directory does not exist, create it
@@ -165,9 +166,9 @@ public class UploadActions extends HttpServlet {
                    boolean log= client.connect(); 
                    //if(log){
                         //if (client.uploadFile(item.getInputStream())){
-                        user = (String) request.getSession().getAttribute("Userid");
+                        user = (String) request.getSession().getAttribute("userid");
                         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + user);
-                        String sq2 = "insert into transaction values('" + user + "','" + user_email+"_"+fileName + "','Success','"+cld+"',now(),'Upload')";
+                        String sq2 = "insert into transaction values('" + user_email+"_"+fileName + "','Success','"+cld+"',now(),'Upload','"+user+"')";
                         pstm1 = (PreparedStatement) con.prepareStatement(sq2);
                         pstm1.executeUpdate();
                         

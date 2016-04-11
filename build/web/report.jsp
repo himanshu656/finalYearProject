@@ -49,24 +49,27 @@
                                     <h2>Users</h2>
                                     <table border="1" width="100%" cellpadding="0" cellspacing="0">
                                         <tr>
-                                            <th>FileName</th>
-                                            <th>Ip</th>
-                                            <th>Date</th>
-                                            <th>Download</th>
+                                            <th>Status</th>
+                                            <th>Date & Time</th>
+                                            <th>File Name</th>
+                                          <!--  <th>Download</th>-->
                                         </tr>
                                         <%
-
+                                            HttpSession se= request.getSession();                                            
+                                             String user=(String)se.getAttribute("userid");
+                                            out.print("<h2>Hello : "+user+"</h2>");
                                             Connection con = DbConnector.getConnection();
                                             PreparedStatement pstm = null;
-                                            String sql = "select * from transaction where status='Success' group by filename";
+                                            String sql = "select * from transaction where name='"+user+"' group by filename ";
                                             pstm = con.prepareStatement(sql);
                                             ResultSet rs = pstm.executeQuery();
                                             while (rs.next()) {%>
                                         <tr>
                                             <td><%=rs.getString(2)%></td>
                                             <td><%=rs.getString(4)%></td>
-                                            <td><%=rs.getString(5)%></td>
-                                            <td><a href="FileDownload?ip=<%=rs.getString(4)%>&file=<%=rs.getString(2)%>">Download</a></td>
+                                            <td><%=rs.getString(1)%></td>
+                                            <!--<td><%=rs.getString(5)%></td> -->
+                                           <!-- <td><a href="FileDownload?ip=<%=rs.getString(4)%>&file=<%=rs.getString(2)%>">Download</a></td> -->
 
                                         </tr>
 
