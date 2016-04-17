@@ -1,0 +1,18 @@
+SMAP
+cloudDetails_jsp.java
+JSP
+*S JSP
+*F
++ 0 cloudDetails.jsp
+cloudDetails.jsp
+*L
+1,47:48
+47,3:95
+49,10:98
+60,6:110
+65,2:116
+67,4:118,3
+71,3:130
+73,2:133
+74,22:135
+*E

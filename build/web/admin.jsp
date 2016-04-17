@@ -23,7 +23,7 @@
         <div id="header-wrapper">
             <div id="header">
                 <div id="logo">
-                    <h1><a href="#">Key word Searching Over Encrypted Data on Cloud using  <span>KNN Algorithm</span></a></h1>                    
+                    <h1><a href="#">Storing of Encrypted Data on Cloud using  <span>KNN Algorithm</span></a></h1>                    
                 </div>
             </div>
         </div>

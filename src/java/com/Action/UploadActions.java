@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.Action;
 
 import com.AES;
@@ -16,6 +12,9 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -102,6 +101,51 @@ public class UploadActions extends HttpServlet {
             String fileName = "";
             FileItem item = (FileItem) itr.next();
             String fName=item.getName();
+            
+            String tags1=(String)se.getAttribute("tags");
+            //out.println(tags1);
+            String tags=tags1.trim();
+            String[] tagArr=tags.split(",");
+            int tagLen=tagArr.length;
+            int count1=0;
+            int count2=0;
+           
+            for(int i=0;i<tagLen;i++)
+            {
+                 if(tagArr[i].equals("bird"))
+                {
+                    count1++;                   
+                }
+                 if(tagArr[i].equals("wings"))
+                {
+                    count1++;
+                }
+                 if(tagArr[i].equals("sweet"))
+                {
+                    count1++;
+                }
+                 if(tagArr[i].equals("fly"))
+                {
+                    count1++;
+                }
+               if (tagArr[i].equals("animal"))
+                {
+                    count2++;
+                }
+                if (tagArr[i].equals("walk"))
+                {
+                    count2++;
+                }
+                if(tagArr[i].equals("big"))
+                {
+                    count2++;
+                }
+                if(tagArr[i].equals("four legs"))
+                {
+                    count2++;
+                }
+            }
+                       
             String sql1 = "select * from transaction where filename='" + item.getName() + "'";
             out.println(">>>>>>>>>>" + sql1+"<br>");
             pstm = con.prepareStatement(sql1);
@@ -114,10 +158,6 @@ public class UploadActions extends HttpServlet {
             } else {
                 fileName = (String) item.getName();
                 out.println("FILENAME:  "+fileName+"<br>");
-                //File file = new File(Constant.file, item.getName());
-                //item.write(file);
-                //out.println("" + file.getAbsolutePath());
-                //out.println(fileName);
                 int x=fileName.lastIndexOf('\\');
                 String fN=fileName.substring(x+1, fileName.length());
                 System.out.println(fN);
@@ -145,7 +185,19 @@ public class UploadActions extends HttpServlet {
             out.println("path: "+path+"  content:=  "+data );     
             AES algo= new AES("Mypassword");
             File   input   = new File(path);
-            File   eoutput = new File("C:\\Cloud\\"+user_email+"\\"+fileName);  
+            
+            
+            File   eoutput;
+            if(count1>count2)
+            {
+                eoutput=new File("C:\\Cloud\\birds\\"+fileName);
+            }
+            else
+            {
+                eoutput=new File("C:\\Cloud\\animals\\"+fileName);
+            }
+            
+            //File   eoutput = new File("C:\\Cloud\\"+user_email+"\\"+fileName);  
             out.println("<br>C:\\Cloud\\"+user_email+"\\"+fileName);
             String iv=null;
             String salt=null;
@@ -168,42 +220,51 @@ public class UploadActions extends HttpServlet {
                         //if (client.uploadFile(item.getInputStream())){
                         user = (String) request.getSession().getAttribute("userid");
                         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + user);
-                        String sq2 = "insert into transaction values('" + user_email+"_"+fileName + "','Success','"+cld+"',now(),'Upload','"+user+"')";
+                        String sq2 = "insert into transaction values('"+fileName +"','Success','"+cld+"',now(),'Upload','"+user+"')";
                         pstm1 = (PreparedStatement) con.prepareStatement(sq2);
                         pstm1.executeUpdate();
-                        
-                        
-                  /*      
-                        
-                    } else {
-                           System.out.println(">>>>>>else");
-                        response.sendRedirect("fileUpload.jsp?msg=Cloud Not Connected");
-                         String sq3 = "insert into transaction values('" + user + "','" + fileName + "','Failed','"+cld+"',now(),'Upload')";
-                        pstm2 = (PreparedStatement) con.prepareStatement(sq3);
-                        pstm2.executeUpdate();
-                       
-                        
-                    }
-                   }else{
-                       System.out.println("not connected");
-                   }*/
-                     
+                               
                 } 
-                //response.sendRedirect("fileUpload.jsp?msg=Check Report");
+               
                se.setAttribute("owner_email",user_email);
                se.setAttribute("size", (data.length()+""));
                se.setAttribute("file_name",fileName);
                se.setAttribute("pyarakey",algo.key );
-                response.sendRedirect("Insert_tags.jsp");
+               response.sendRedirect("userHome.jsp");
+           
+           String file_name=(String)se.getAttribute("file_name");
+           String size=(String)se.getAttribute("size");
+           out.println("yaha tak thik hai!!");
+           String owner_email=(String)se.getAttribute("owner_email");
+            
+           Date dNow = new Date( );
+           SimpleDateFormat ft =new SimpleDateFormat ("yyyy-MM-dd");
+           //out.println("<br>Current Date: " + ft.format(dNow));
+           
+           out.print(""+tags);
+           String pyarakey=(String)se.getAttribute("pyarakey");
+           
+           String query="insert into csp_data values('"+owner_email+"', '"+file_name+"','"+size+"','"+tags+"','"+ft.format(dNow)+"','"+pyarakey+"')";       
+           Statement statement= con.createStatement();
+           int val=statement.executeUpdate(query);
+              String msg="";
+           
+           if(val>0)
+           {
+              // out.println("Inserted sucess!!");
+               msg+="Insert Sucess!!";
+           }
+           else
+           {
+              // out.println("failed");
+                msg+="Insert failed!!";
+           }
+        se.setAttribute("msg_report", msg);
             }
            
         } catch (Exception ex) {
             ex.printStackTrace();
-//            response.sendRedirect("fileUpload.jsp?msg=updated successfully");
-            // log("Error encountered while uploading file", ex);
         }
-//        response.sendRedirect("fileUpload.jsp?msg=Check Report for status");
-      //  response.sendRedirect("Insert_tags.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

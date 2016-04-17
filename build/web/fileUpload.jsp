@@ -28,11 +28,11 @@
         <div id="header-wrapper">
             <div id="header">
                 <div id="logo">
-                    <h1><a href="#">Key word Searching Over Encrypted Data on Cloud using  <span>KNN Algorithm</span></a></h1>                    
+                    <h1><a href="#">Storing of Encrypted Data on Cloud using  <span>KNN Algorithm</span></a></h1>                    
                 </div>
             </div>
         </div>
-        <div id="banner"><img src="images/img04.jpg" width="1000" height="350" alt="" /></div>
+    <!--    <div id="banner"><img src="images/img04.jpg" width="1000" height="350" alt="" /></div>  -->
         <div id="wrapper">
             <!-- end #header -->
             <div id="page">
@@ -60,6 +60,7 @@
                                             <tr style="height: 40px;"><td>Choose File</td><td> <input name="file" type="file" id="file"/>    </td></tr>
                                           <!--  <tr style="height: 40px;"><td>No.of Cloud</td><td> <%=a%>    </td></tr> -->
                                             <tr style="height: 40px;"><td></td><td><input type="submit" value="Upload" style="height: 25px;width: 90px;"/></td></tr>
+                
                                         </table>
                                     </form>
                                 </div>

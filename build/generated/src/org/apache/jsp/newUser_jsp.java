@@ -57,8 +57,8 @@ public final class newUser_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div id=\"menu\">\n");
       out.write("                <ul>\n");
       out.write("                    <li><a href=\"adminHome.jsp\">Admin Home</a></li>\n");
-      out.write("                    <li><a href=\"createCloud.jsp\">Create Cloud</a></li>\n");
-      out.write("                    <li><a href=\"cloudDetails.jsp\">Cloud Details</a></li>                    \n");
+      out.write("                    <!-- <li><a href=\"createCloud.jsp\">Create Cloud</a></li>    -->\n");
+      out.write("                <!--     <li><a href=\"cloudDetails.jsp\">Cloud Details</a></li>        -->                  \n");
       out.write("                    <li class=\"current_page_item\"><a href=\"newUser.jsp\">Create Member</a></li>\n");
       out.write("                    <li><a href=\"viewUser.jsp\">Member Details</a></li>\n");
       out.write("                    <li><a href=\"index.jsp\">Log out</a></li>\n");
@@ -69,7 +69,7 @@ public final class newUser_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <div id=\"header-wrapper\">\n");
       out.write("            <div id=\"header\">\n");
       out.write("                <div id=\"logo\">\n");
-      out.write("                    <h1><a href=\"#\">Key word Searching Over Encrypted Data on Cloud using  <span>KNN Algorithm</span></a></h1>                    \n");
+      out.write("                    <h1><a href=\"#\">Storing of Encrypted Data on Cloud using  <span>KNN Algorithm</span></a></h1>                    \n");
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </div>\n");

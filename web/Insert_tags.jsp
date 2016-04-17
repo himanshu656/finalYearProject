@@ -36,6 +36,7 @@
                     <li><a href="userHome.jsp">User Home</a></li>
                     <li class="current_page_item"><a href="#">Upload</a></li>
                     <li><a href="report.jsp">Report</a></li>
+                    <li><a href="searchFile.jsp">Search File</a></li>
                     <li><a href="index.jsp">Log out</a></li>
                 </ul>
             </div>
@@ -46,10 +47,10 @@
     <div class="bdy">
             <%
            HttpSession se= request.getSession();
-           out.print("<h2>Hello : "+se.getAttribute("owner_email")+"</h2>");
+           out.print("<h2>Hello  "+se.getAttribute("user_email")+"</h2>");
            String file_name=(String)se.getAttribute("file_name");
            String size=(String)se.getAttribute("size");
-           String owner_email=(String)se.getAttribute("owner_email");
+           String owner_email=(String)se.getAttribute("user_email");
            String pyarakey=(String)se.getAttribute("pyarakey");
     
     %>

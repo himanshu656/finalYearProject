@@ -14,8 +14,8 @@
             <div id="menu">
                 <ul>
                     <li><a href="adminHome.jsp">Admin Home</a></li>
-                    <li><a href="createCloud.jsp">Create Cloud</a></li>
-                    <li><a href="cloudDetails.jsp">Cloud Details</a></li>                    
+                    <!-- <li><a href="createCloud.jsp">Create Cloud</a></li>    -->
+                <!--     <li><a href="cloudDetails.jsp">Cloud Details</a></li>        -->                  
                     <li class="current_page_item"><a href="newUser.jsp">Create Member</a></li>
                     <li><a href="viewUser.jsp">Member Details</a></li>
                     <li><a href="index.jsp">Log out</a></li>
@@ -26,7 +26,7 @@
         <div id="header-wrapper">
             <div id="header">
                 <div id="logo">
-                    <h1><a href="#">Key word Searching Over Encrypted Data on Cloud using  <span>KNN Algorithm</span></a></h1>                    
+                    <h1><a href="#">Storing of Encrypted Data on Cloud using  <span>KNN Algorithm</span></a></h1>                    
                 </div>
             </div>
         </div>

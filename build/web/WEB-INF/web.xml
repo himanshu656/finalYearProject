@@ -29,8 +29,16 @@
         <servlet-class>com.Action.FileDownload</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>FileDataFetcher</servlet-name>
+        <servlet-class>com.Action.FileDataFetcher</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>InsertTags</servlet-name>
         <servlet-class>com.InsertTags</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FileSearching</servlet-name>
+        <servlet-class>com.Action.FileSearching</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminLogin</servlet-name>
@@ -63,6 +71,14 @@
     <servlet-mapping>
         <servlet-name>InsertTags</servlet-name>
         <url-pattern>/InsertTags</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FileSearching</servlet-name>
+        <url-pattern>/FileSearching</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FileDataFetcher</servlet-name>
+        <url-pattern>/FileDataFetcher</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

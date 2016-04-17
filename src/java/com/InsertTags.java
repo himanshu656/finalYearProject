@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com;
 
 import java.io.IOException;
@@ -46,8 +41,9 @@ public class InsertTags extends HttpServlet {
            Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/ftp","root","password");
            
            String tags=request.getParameter("tags");
-           
-           String file_name=(String)se.getAttribute("file_name");
+           se.setAttribute("tags", tags);
+         //   String owner_email=(String)se.getAttribute("userid");
+         /*  String file_name=(String)se.getAttribute("file_name");
            
            String size=(String)se.getAttribute("size");
            out.println("yaha tak thik hai!!");
@@ -76,7 +72,8 @@ public class InsertTags extends HttpServlet {
                 msg+="Insert failed!!";
            }
         se.setAttribute("msg_report", msg);
-           response.sendRedirect("userHome.jsp");
+           */
+           response.sendRedirect("fileUpload.jsp");
            
         }
         catch(Exception ee)

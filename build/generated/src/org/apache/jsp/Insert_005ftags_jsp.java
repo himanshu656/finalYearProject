@@ -58,7 +58,7 @@ public final class Insert_005ftags_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("        width:100%;\n");
       out.write("        height:400px;\n");
       out.write("        border:1px solid white;\n");
-      out.write("        background-color:grey;\n");
+      out.write("        background-color:#E6E6E6;\n");
       out.write("        border-radius:12px;\n");
       out.write("        }\n");
       out.write("        .footer\n");
@@ -72,18 +72,15 @@ public final class Insert_005ftags_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("        </style>\n");
       out.write("    </head>\n");
       out.write("<body>\n");
-      out.write("    <div class=\"header\">\n");
-      out.write("        <center>\n");
-      out.write("        <p>Insert Tags for your file </p>\n");
-      out.write("        </center>\n");
-      out.write("        \n");
-      out.write("    </div>\n");
+      out.write("    \n");
       out.write("    <div id=\"menu-wrapper\">\n");
       out.write("            <div id=\"menu\">\n");
       out.write("                <ul>\n");
-      out.write("                    <li class=\"current_page_item\"><a href=\"#\">Home</a></li>\n");
-      out.write("                    <li><a href=\"admin.jsp\">Admin</a></li>\n");
-      out.write("                    <li><a href=\"userLogin.jsp\">Member</a></li>                    \n");
+      out.write("                    <li><a href=\"userHome.jsp\">User Home</a></li>\n");
+      out.write("                    <li class=\"current_page_item\"><a href=\"#\">Upload</a></li>\n");
+      out.write("                    <li><a href=\"report.jsp\">Report</a></li>\n");
+      out.write("                    <li><a href=\"searchFile.jsp\">Search File</a></li>\n");
+      out.write("                    <li><a href=\"index.jsp\">Log out</a></li>\n");
       out.write("                </ul>\n");
       out.write("            </div>\n");
       out.write("            <!-- end #menu -->\n");
@@ -94,10 +91,10 @@ public final class Insert_005ftags_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("            ");
 
            HttpSession se= request.getSession();
-           out.print("<h2>Hello : "+se.getAttribute("owner_email")+"</h2>");
+           out.print("<h2>Hello  "+se.getAttribute("user_email")+"</h2>");
            String file_name=(String)se.getAttribute("file_name");
            String size=(String)se.getAttribute("size");
-           String owner_email=(String)se.getAttribute("owner_email");
+           String owner_email=(String)se.getAttribute("user_email");
            String pyarakey=(String)se.getAttribute("pyarakey");
     
     
@@ -121,7 +118,7 @@ public final class Insert_005ftags_jsp extends org.apache.jasper.runtime.HttpJsp
         if(request.getAttribute("msg_report")!=null)
         {
             String msg=(String)se.getAttribute("msg_report");
-            out.println("<h3>'"+msg+"'</h3>");
+            out.println("<h3 style='color:red;'>'"+msg+"'</h3>");
             
         }
         
