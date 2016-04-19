@@ -21,6 +21,7 @@
                     <li><a href="Insert_tags.jsp">Upload</a></li>
                     <li class="current_page_item"><a href="report.jsp">Report</a></li>
                     <li><a href="searchFile.jsp">Search File</a></li>
+                     <li><a href="getKey.jsp">Acquire Key</a></li>
                     <li><a href="index.jsp">Log out</a></li>
                 </ul>
             </div>
@@ -47,7 +48,7 @@
                                     <%if (request.getParameter("msg") != null) {
                                             out.println(request.getParameter("msg"));
                                         }%>
-                                    <h2>Users</h2>
+                               
                                     <table border="1" width="100%" cellpadding="0" cellspacing="0">
                                         <tr>
                                             <th>Status</th>

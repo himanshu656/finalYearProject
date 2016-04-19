@@ -18,10 +18,10 @@
             <div id="menu">
                 <ul>
                     <li><a href="userHome.jsp">User Home</a></li>
-                    <li class="current_page_item"><a href="#">Upload</a></li>
+                    <li><a href="Insert_tags.jsp">Upload</a></li>
                     <li><a href="report.jsp">Report</a></li>
                     <li><a href="searchFile.jsp">Search File</a></li>
-                     <li><a href="getKey.jsp">Acquire Key</a></li>
+                     <li class="current_page_item"><a href="#">Acquire Key</a></li>
                     <li><a href="index.jsp">Log out</a></li>
                 </ul>
             </div>
@@ -44,7 +44,27 @@
                             <div class="post">                                
                                 <div style="clear: both;">&nbsp;</div>
                                 <div class="entry">
-                                    <%if (request.getParameter("msg") != null) {
+                                    
+                                    <h3>Get Your File's Key ...</h3>
+                                    <!--form name="" action="GetKey" method="post" enctype="multipart/form-data">
+                                        <table-->
+            <form method="POST" action="GetKey">
+                <tr>
+                    <td>Enter File Name :</td>
+                    <td><textarea cols="60" rows="2" name="fileName"> </textarea></td>
+                </tr>
+                <br>
+                    <br>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="submit"  value="Key is !!"> </td>
+                </tr>
+            </form>
+        <!--/table>
+                                    </form-->
+                                   <%if (request.getParameter("msg") != null) {
                                             out.println(request.getParameter("msg"));
                                         }
                                         Connection con = DbConnector.getConnection();
@@ -56,16 +76,9 @@
                                         if (rs.next()) {
                                             a = rs.getString(1);
                                         }%>
-                                        
-                                    <h3>File Upload</h3>
-                                    <form name="" action="UploadActions" method="post" enctype="multipart/form-data">
-                                        <table width="70%">
-                                            <tr style="height: 40px;"><td>Choose File</td><td> <input name="file" type="file" id="file"/>    </td></tr>
-                                          <!--  <tr style="height: 40px;"><td>No.of Cloud</td><td> <%=a%>    </td></tr> -->
-                                            <tr style="height: 40px;"><td></td><td><input type="submit" value="Upload" style="height: 25px;width: 90px;"/></td></tr>
-                
-                                        </table>
-                                    </form>
+                                        <!--%if (request.getParameter("msg") != null) {
+                                            out.println(request.getParameter("msg"));
+                                        }%-->
                                 </div>
                             </div>
                             <div style="clear: both;">&nbsp;</div>

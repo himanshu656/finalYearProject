@@ -20,6 +20,8 @@
                     <li><a href="userHome.jsp">User Home</a></li>
                     <li class="current_page_item"><a href="#">Upload</a></li>
                     <li><a href="report.jsp">Report</a></li>
+                    <li><a href="searchFile.jsp">Search File</a></li>
+                     <li><a href="getKey.jsp">Acquire Key</a></li>
                     <li><a href="index.jsp">Log out</a></li>
                 </ul>
             </div>
@@ -54,6 +56,7 @@
                                         if (rs.next()) {
                                             a = rs.getString(1);
                                         }%>
+                                        
                                     <h3>File Upload</h3>
                                     <form name="" action="UploadActions" method="post" enctype="multipart/form-data">
                                         <table width="70%">

@@ -40,6 +40,10 @@
         <servlet-name>FileSearching</servlet-name>
         <servlet-class>com.Action.FileSearching</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetKey</servlet-name>
+        <servlet-class>com.Action.GetKey</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminLogin</servlet-name>
         <url-pattern>/AdminLogin</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>FileDataFetcher</servlet-name>
         <url-pattern>/FileDataFetcher</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetKey</servlet-name>
+        <url-pattern>/GetKey</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

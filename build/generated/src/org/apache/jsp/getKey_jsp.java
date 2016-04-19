@@ -8,7 +8,7 @@ import com.util.DbConnector;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 
-public final class fileUpload_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class getKey_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -65,9 +65,10 @@ public final class fileUpload_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div id=\"menu\">\n");
       out.write("                <ul>\n");
       out.write("                    <li><a href=\"userHome.jsp\">User Home</a></li>\n");
-      out.write("                    <li class=\"current_page_item\"><a href=\"#\">Upload</a></li>\n");
+      out.write("                    <li><a href=\"Insert_tags.jsp\">Upload</a></li>\n");
       out.write("                    <li><a href=\"report.jsp\">Report</a></li>\n");
-      out.write("                    <li><a href=\"searchFile.jsp\">Report</a></li>\n");
+      out.write("                    <li><a href=\"searchFile.jsp\">Search File</a></li>\n");
+      out.write("                     <li class=\"current_page_item\"><a href=\"#\">Acquire Key</a></li>\n");
       out.write("                    <li><a href=\"index.jsp\">Log out</a></li>\n");
       out.write("                </ul>\n");
       out.write("            </div>\n");
@@ -90,7 +91,27 @@ public final class fileUpload_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <div class=\"post\">                                \n");
       out.write("                                <div style=\"clear: both;\">&nbsp;</div>\n");
       out.write("                                <div class=\"entry\">\n");
-      out.write("                                    ");
+      out.write("                                    \n");
+      out.write("                                    <h3>Get Your File's Key ...</h3>\n");
+      out.write("                                    <!--form name=\"\" action=\"GetKey\" method=\"post\" enctype=\"multipart/form-data\">\n");
+      out.write("                                        <table-->\n");
+      out.write("            <form method=\"POST\" action=\"GetKey\">\n");
+      out.write("                <tr>\n");
+      out.write("                    <td>Enter File Name :</td>\n");
+      out.write("                    <td><textarea cols=\"60\" rows=\"2\" name=\"fileName\"> </textarea></td>\n");
+      out.write("                </tr>\n");
+      out.write("                <br>\n");
+      out.write("                    <br>\n");
+      out.write("                <tr>\n");
+      out.write("                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n");
+      out.write("                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n");
+      out.write("                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>\n");
+      out.write("                    <td><input type=\"submit\"  value=\"Key is !!\"> </td>\n");
+      out.write("                </tr>\n");
+      out.write("            </form>\n");
+      out.write("        <!--/table>\n");
+      out.write("                                    </form-->\n");
+      out.write("                                   ");
 if (request.getParameter("msg") != null) {
                                             out.println(request.getParameter("msg"));
                                         }
@@ -104,22 +125,9 @@ if (request.getParameter("msg") != null) {
                                             a = rs.getString(1);
                                         }
       out.write("\n");
-      out.write("                                        ");
-if (request.getParameter("msg") != null) {
-                                            out.println(request.getParameter("msg"));
-                                        }
-      out.write("\n");
-      out.write("                                    <h3>File Upload</h3>\n");
-      out.write("                                    <form name=\"\" action=\"UploadActions\" method=\"post\" enctype=\"multipart/form-data\">\n");
-      out.write("                                        <table width=\"70%\">\n");
-      out.write("                                            <tr style=\"height: 40px;\"><td>Choose File</td><td> <input name=\"file\" type=\"file\" id=\"file\"/>    </td></tr>\n");
-      out.write("                                          <!--  <tr style=\"height: 40px;\"><td>No.of Cloud</td><td> ");
-      out.print(a);
-      out.write("    </td></tr> -->\n");
-      out.write("                                            <tr style=\"height: 40px;\"><td></td><td><input type=\"submit\" value=\"Upload\" style=\"height: 25px;width: 90px;\"/></td></tr>\n");
-      out.write("                \n");
-      out.write("                                        </table>\n");
-      out.write("                                    </form>\n");
+      out.write("                                        <!--%if (request.getParameter(\"msg\") != null) {\n");
+      out.write("                                            out.println(request.getParameter(\"msg\"));\n");
+      out.write("                                        }%-->\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
       out.write("                            <div style=\"clear: both;\">&nbsp;</div>\n");

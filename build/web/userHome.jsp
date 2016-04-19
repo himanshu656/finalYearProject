@@ -21,6 +21,7 @@
                     <li><a href="Insert_tags.jsp">Upload</a></li>
                     <li><a href="report.jsp">Report</a></li>
                     <li><a href="searchFile.jsp">Search File</a></li>
+                    <li><a href="getKey.jsp">Acquire key</a></li>
                     <li><a href="index.jsp">Log out</a></li>
                 </ul>
             </div>

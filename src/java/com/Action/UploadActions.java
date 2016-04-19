@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.commons.io.FileUtils;
 import org.apache.tomcat.util.http.fileupload.FileItem;
 import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
@@ -147,13 +148,13 @@ public class UploadActions extends HttpServlet {
             }
                        
             String sql1 = "select * from transaction where filename='" + item.getName() + "'";
-            out.println(">>>>>>>>>>" + sql1+"<br>");
+            //out.println(">>>>>>>>>>" + sql1+"<br>");
             pstm = con.prepareStatement(sql1);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 //System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>.loop");
-               // response.sendRedirect("fileUpload.jsp?msg=File Name Already Exist");
-                out.println("FILE ALREADY EXIST.");
+                response.sendRedirect("fileUpload.jsp?msg=File Name Already Exist");
+               // out.println("FILE ALREADY EXIST.");
                 return;
             } else {
                 fileName = (String) item.getName();
@@ -187,14 +188,24 @@ public class UploadActions extends HttpServlet {
             File   input   = new File(path);
             
             
-            File   eoutput;
+            File   eoutput,source,destination;
+            //source = new File("C:\\Users\\User\\Desktop\\MyFiles\\"+fileName);
             if(count1>count2)
             {
                 eoutput=new File("C:\\Cloud\\birds\\"+fileName);
+                destination= new File("E:\\Netbeans Projects\\birds\\"+fileName);
+                try{
+                   FileUtils.copyFile(input, destination);
+                   //bhhh
+                }catch(Exception e){}
             }
             else
             {
                 eoutput=new File("C:\\Cloud\\animals\\"+fileName);
+                destination= new File("E:\\Netbeans Projects\\animals\\"+fileName);
+                try{
+                     FileUtils.copyFile(input, destination);
+                }catch(Exception e){}
             }
             
             //File   eoutput = new File("C:\\Cloud\\"+user_email+"\\"+fileName);  
@@ -234,7 +245,7 @@ public class UploadActions extends HttpServlet {
            
            String file_name=(String)se.getAttribute("file_name");
            String size=(String)se.getAttribute("size");
-           out.println("yaha tak thik hai!!");
+         //  out.println("yaha tak thik hai!!");
            String owner_email=(String)se.getAttribute("owner_email");
             
            Date dNow = new Date( );
@@ -243,28 +254,43 @@ public class UploadActions extends HttpServlet {
            
            out.print(""+tags);
            String pyarakey=(String)se.getAttribute("pyarakey");
+            user=rs1.getString("uname");
            
-           String query="insert into csp_data values('"+owner_email+"', '"+file_name+"','"+size+"','"+tags+"','"+ft.format(dNow)+"','"+pyarakey+"')";       
+      //     String sql="select * from csp_data where file_name='"+file_name+"'";
+       //     Statement st= con.createStatement();
+        //   ResultSet rs2=st.executeQuery(sql);
+           
+         //  if(!rs2.next())
+          //   {
+           //      out.println("file already exists ...");
+           //   }
+         //   else            
+        //    {
+        //        out.println(" inserted successfuly");
+           String query="insert into csp_data values('"+owner_email+"', '"+file_name+"','"+size+"','"+tags+"','"+ft.format(dNow)+"','"+pyarakey+"','"+user+"')";       
            Statement statement= con.createStatement();
            int val=statement.executeUpdate(query);
+     //      out.println(" inserted successfuly");
               String msg="";
-           
-           if(val>0)
-           {
-              // out.println("Inserted sucess!!");
-               msg+="Insert Sucess!!";
-           }
-           else
-           {
-              // out.println("failed");
-                msg+="Insert failed!!";
-           }
-        se.setAttribute("msg_report", msg);
+             
+                        if(val>0)
+                            {
+                              msg+="Insert Sucess!!";
+                            }
+                          else
+                            {
+                             msg+="Insert failed!!";
+                            }
+                          se.setAttribute("msg_report", msg);
+                
+                     response.sendRedirect("filUpload.jsp?msg=Check Userid or Password");
+       //     }
             }
            
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

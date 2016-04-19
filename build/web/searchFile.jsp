@@ -44,6 +44,7 @@ $(document).ready(function(){
                     <li><a href="Insert_tags.jsp">Upload</a></li>
                     <li><a href="report.jsp">Report</a></li>
                     <li class="current_page_item"><a href="#">Search File</a></li>
+                     <li><a href="getKey.jsp">Acquire Key</a></li>
                     <li><a href="index.jsp">Log out</a></li>
                 </ul>
             </div>
