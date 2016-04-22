@@ -172,7 +172,7 @@ public class UploadActions extends HttpServlet {
                 
                 //-------------------------- FILE ENCRYPTION --------------------
                 
-             String path="C:\\Users\\User\\Desktop\\MyFiles\\"+fileName;
+             String path="E:\\uploadFromHere\\"+fileName;
              out.println("PATH: "+path);
              FileReader fileReader =new FileReader(path);
              BufferedReader br= new BufferedReader(fileReader);
@@ -193,16 +193,15 @@ public class UploadActions extends HttpServlet {
             if(count1>count2)
             {
                 eoutput=new File("C:\\Cloud\\birds\\"+fileName);
-                destination= new File("E:\\Netbeans Projects\\birds\\"+fileName);
+                destination= new File("E:\\makeshift\\"+fileName);
                 try{
                    FileUtils.copyFile(input, destination);
-                   //bhhh
                 }catch(Exception e){}
             }
             else
             {
                 eoutput=new File("C:\\Cloud\\animals\\"+fileName);
-                destination= new File("E:\\Netbeans Projects\\animals\\"+fileName);
+                destination= new File("E:\\makeshift\\"+fileName);
                 try{
                      FileUtils.copyFile(input, destination);
                 }catch(Exception e){}
@@ -236,7 +235,7 @@ public class UploadActions extends HttpServlet {
                         pstm1.executeUpdate();
                                
                 } 
-               
+             
                se.setAttribute("owner_email",user_email);
                se.setAttribute("size", (data.length()+""));
                se.setAttribute("file_name",fileName);
@@ -254,7 +253,8 @@ public class UploadActions extends HttpServlet {
            
            out.print(""+tags);
            String pyarakey=(String)se.getAttribute("pyarakey");
-            user=rs1.getString("uname");
+           user=rs1.getString("uname");
+           se.setAttribute("user_Name",user);
            
       //     String sql="select * from csp_data where file_name='"+file_name+"'";
        //     Statement st= con.createStatement();

@@ -22,6 +22,8 @@
                     <li><a href="report.jsp">Report</a></li>
                     <li><a href="searchFile.jsp">Search File</a></li>
                      <li class="current_page_item"><a href="#">Acquire Key</a></li>
+                     <li><a href="FileOwner.jsp">File Owner</a></li>
+                     <li><a href="decryptFile.jsp">Decrypt File</a></li>
                     <li><a href="index.jsp">Log out</a></li>
                 </ul>
             </div>

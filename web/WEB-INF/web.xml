@@ -44,6 +44,14 @@
         <servlet-name>GetKey</servlet-name>
         <servlet-class>com.Action.GetKey</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DecryptFile</servlet-name>
+        <servlet-class>com.Action.DecryptFile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FileOwner</servlet-name>
+        <servlet-class>com.Action.FileOwner</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminLogin</servlet-name>
         <url-pattern>/AdminLogin</url-pattern>
@@ -87,6 +95,14 @@
     <servlet-mapping>
         <servlet-name>GetKey</servlet-name>
         <url-pattern>/GetKey</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DecryptFile</servlet-name>
+        <url-pattern>/DecryptFile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FileOwner</servlet-name>
+        <url-pattern>/FileOwner</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

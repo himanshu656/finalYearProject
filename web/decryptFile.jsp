@@ -12,8 +12,10 @@
         <link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css" />
         <link href="http://fonts.googleapis.com/css?family=Coda:400,800" rel="stylesheet" type="text/css" />
         <link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+
     </head>
     <body>
+       
         <div id="menu-wrapper">
             <div id="menu">
                 <ul>
@@ -21,9 +23,9 @@
                     <li><a href="Insert_tags.jsp">Upload</a></li>
                     <li><a href="report.jsp">Report</a></li>
                     <li><a href="searchFile.jsp">Search File</a></li>
-                     <li class="current_page_item"><a href="#">Acquire Key</a></li>
+                    <li><a href="getKey.jsp">Acquire Key</a></li>
                      <li><a href="FileOwner.jsp">File Owner</a></li>
-                     <li><a href="decryptFile.jsp">Decrypt File</a></li>
+                     <li class="current_page_item"><a href="#">Decrypt File</a></li>
                     <li><a href="index.jsp">Log out</a></li>
                 </ul>
             </div>
@@ -47,26 +49,30 @@
                                 <div style="clear: both;">&nbsp;</div>
                                 <div class="entry">
                                     
-                                    <h3>Get Your File's Key ...</h3>
+                                    <h3>Decrypt File ...</h3>
                                     <!--form name="" action="GetKey" method="post" enctype="multipart/form-data">
                                         <table-->
-            <form method="POST" action="GetKey">
+            <form method="POST" action="DecryptFile">
                 <tr>
                     <td>Enter File Name :</td>
-                    <td><textarea cols="60" rows="2" name="fileName"> </textarea></td>
+                    <td><input type="text" cols="60" rows="2" name="fileName"> </textarea></td>
+                    
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp; Enter Key :</td>
+                    <td><input type="text" cols="60" rows="2" name="keyValue"> </textarea></td>
                 </tr>
                 <br>
                     <br>
-                <tr>
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <tr><td>
+                               </td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="submit"  value="Key is !!"> </td>
+                    <td><input type="submit"  value="Decrypt me !!"> </td>
                 </tr>
             </form>
         <!--/table>
                                     </form-->
-                                   <%if (request.getParameter("msg") != null) {
+                              <br><br> <a href="myDownload.jsp">Click me to download the requested file !</a>
+                                <%if (request.getParameter("msg") != null) {
                                             out.println(request.getParameter("msg"));
                                         }
                                         Connection con = DbConnector.getConnection();

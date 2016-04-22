@@ -68,6 +68,9 @@ public final class userHome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <li><a href=\"Insert_tags.jsp\">Upload</a></li>\r\n");
       out.write("                    <li><a href=\"report.jsp\">Report</a></li>\r\n");
       out.write("                    <li><a href=\"searchFile.jsp\">Search File</a></li>\r\n");
+      out.write("                    <li><a href=\"getKey.jsp\">Acquire key</a></li>\r\n");
+      out.write("                    <li><a href=\"decryptFile.jsp\">Decrypt File</a></li>\r\n");
+      out.write("                    <li><a href=\"FileOwner.jsp\">File's Owner ?</a></li>\r\n");
       out.write("                    <li><a href=\"index.jsp\">Log out</a></li>\r\n");
       out.write("                </ul>\r\n");
       out.write("            </div>\r\n");

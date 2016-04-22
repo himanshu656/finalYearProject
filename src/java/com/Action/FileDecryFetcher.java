@@ -24,10 +24,19 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Himanshu Joshi
  */
-@WebServlet(name = "FileDataFetcher", urlPatterns = {"/FileDataFetcher"})
-public class FileDataFetcher extends HttpServlet {
+@WebServlet(name = "FileDecryFetcher", urlPatterns = {"/FileDecryFetcher"})
+public class FileDecryFetcher extends HttpServlet {
 
     public static final Logger logger = Logger.getLogger("FileDataFetcher.class");
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -35,7 +44,7 @@ public class FileDataFetcher extends HttpServlet {
         response.setHeader("Content-disposition", "attachment; filename=" + fileName);
         try (PrintWriter pw = response.getWriter()) {
 
-            File my_file = new File("C:\\Cloud\\birds\\" + fileName);
+            File my_file = new File("E:\\Netbeans Projects\\birds\\" + fileName);
             FileInputStream in = new FileInputStream(my_file);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             String line;

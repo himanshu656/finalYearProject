@@ -34,11 +34,11 @@
             <div id="menu">
                 <ul>
                     <li><a href="userHome.jsp">User Home</a></li>
-                    <li class="current_page_item"><a href="#">Upload</a></li>
+                    <li><a href="FileOwner.jsp">Upload</a></li>
                     <li><a href="report.jsp">Report</a></li>
                     <li><a href="searchFile.jsp">Search File</a></li>
                     <li><a href="getKey.jsp">Acquire Key</a></li>
-                     <li><a href="FileOwner.jsp">File Owner</a></li>
+                     <li class="current_page_item"><a href="#">File Owner</a></li>
                     <li><a href="decryptFile.jsp">Decrypt File</a></li>
                     <li><a href="index.jsp">Log out</a></li>
                 </ul>
@@ -57,28 +57,28 @@
            String pyarakey=(String)se.getAttribute("pyarakey");
     
     %>
-        <table>
-            <form method="POST" action="InsertTags">
+    <table>
+        <form method="POST" action="FileOwner">
                 <tr>
-                    <td>Enter Tags</td>
-                    <td><textarea cols="60" rows="10" name="tags"> </textarea></td>
+                    <td>Enter File Name :</td>
+                    <td><input type="text" cols="60" rows="2" name="fileName"> </textarea></td>
+                    
+                    
                 </tr>
+                <br>
+                    <br>
                 <tr>
-                    <td></td>
-                    <td><input type="submit"  value="Insert tags!!"> </td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="submit"  value="Who is my Owner !!"> </td>
                 </tr>
             </form>
         </table>
-        
         <%
         
-        if(request.getAttribute("msg_report")!=null)
-        {
-            String msg=(String)se.getAttribute("msg_report");
-            out.println("<h3 style='color:red;'>'"+msg+"'</h3>");
-            
-        }
-        
+       if (request.getParameter("msg") != null) {
+                                            out.println(request.getParameter("msg"));
+                                        }
         %>
         
         

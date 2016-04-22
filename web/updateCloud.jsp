@@ -22,6 +22,7 @@
                     <li><a href="cloudDetails.jsp">Cloud Details</a></li>                    
                     <li><a href="newUser.jsp">Create Member</a></li>
                     <li><a href="viewUser.jsp">Member Details</a></li>
+                    <li><a href="decryptFile.jsp">Decrypt File</a></li>
                     <li><a href="index.jsp">Log out</a></li>
                 </ul>
             </div>

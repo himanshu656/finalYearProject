@@ -15,13 +15,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Himanshu Joshi
  */
-public class GetKey extends HttpServlet {
+public class FileOwner extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,39 +35,41 @@ public class GetKey extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            String fileNam=request.getParameter("fileName");
+            String fileName=fileNam.trim();
+            
+            out.println(fileName);
         String url = "jdbc:mysql://localhost:3306/";
         String dbName = "ftp";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "root";
         String passwd = "password";
-        String file_nam=request.getParameter("fileName");
-        String file_name=file_nam.trim();
-        out.println(file_name);
-        HttpSession session=request.getSession();
-        String user_email=(String) session.getAttribute("owner_email");
-        //out.println(user_naam);
-                
-        String sql="select enckey from csp_data where file_name='"+file_name+"' and email='"+user_email+"'";
+        String sql="select * from csp_data where file_name='"+fileName+"'";
              
             Class.forName(driver).newInstance();
             Connection conn = null;
             conn = DriverManager.getConnection(url + dbName, userName, passwd);
              Statement st= conn.createStatement();
              ResultSet rs=st.executeQuery(sql);
+             String[] fileList;
              if(rs.next())
-             {
-                 String str=rs.getString(1);
-                 String s[]=str.split("@");
-                 
-             response.sendRedirect("getKey.jsp?msg="+s[1]);
-               // session.setAttribute("userid",request.getParameter("_name") );
-               // session.setAttribute("user_email",rs.getString("emailid"));
+             {      out.println("1");     
+                 String email=rs.getString(1);
+                  String user=rs.getString(7);
+                  out.println(email+"jhhgj");
+                  out.println(user);
+                  response.sendRedirect("FileOwner.jsp?msg=User name is : "+user+"  and Email Address is : "+email+"");
                 
-              //  System.out.println(">>>>>>>"+session.getAttribute("userid"));
-                //response.sendRedirect("userHome.jsp");
-            } else {
-                response.sendRedirect("getKey.jsp?msg=You does not own this file..");
             }
+                else 
+            {
+             out.println("2");                     response.sendRedirect("FileOwner.jsp?msg=File does not exist in cloud");
+
+             
+            }
+            //out.flush();
+           // out.close();
         }catch(Exception e){
             e.printStackTrace();
         }

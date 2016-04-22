@@ -1,10 +1,12 @@
+package com.Action;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.Action;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -21,7 +23,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Himanshu Joshi
  */
-public class GetKey extends HttpServlet {
+public class DecryptFile extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,43 +38,70 @@ public class GetKey extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            String fileNam=request.getParameter("fileName");
+            String fileName=fileNam.trim();
+            String key=request.getParameter("keyValue");
+            String keyValue="com.sun.crypto.provider.PBKDF2KeyImpl@"+key;
+            out.print(fileName+"...."+keyValue);
+            
         String url = "jdbc:mysql://localhost:3306/";
         String dbName = "ftp";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "root";
         String passwd = "password";
-        String file_nam=request.getParameter("fileName");
-        String file_name=file_nam.trim();
-        out.println(file_name);
-        HttpSession session=request.getSession();
-        String user_email=(String) session.getAttribute("owner_email");
-        //out.println(user_naam);
-                
-        String sql="select enckey from csp_data where file_name='"+file_name+"' and email='"+user_email+"'";
+        String sql="select * from csp_data where file_name='"+fileName+"' and enckey='"+keyValue+"'";
              
             Class.forName(driver).newInstance();
             Connection conn = null;
             conn = DriverManager.getConnection(url + dbName, userName, passwd);
              Statement st= conn.createStatement();
              ResultSet rs=st.executeQuery(sql);
+             String[] fileList;
              if(rs.next())
-             {
-                 String str=rs.getString(1);
-                 String s[]=str.split("@");
+             {           
+                 HttpSession se= request.getSession();
+                 se.setAttribute("fileName", fileName);
+                  response.sendRedirect("decryptFile.jsp?msg=File is decrypted");
                  
-             response.sendRedirect("getKey.jsp?msg="+s[1]);
-               // session.setAttribute("userid",request.getParameter("_name") );
+                // out.println("bingo");
+                /// fileList = f.list();
+            //    for (int i = 0; i < fileList.length; i++) 
+                {
+             //       out.print(fileList[i]);
+                   // out.print(",");
+                  //File f = new File("E:\\Netbeans Projects\\birds\\"+fileName);
+                //response.sendRedirect("getKey.jsp?msg="+s[1]);
+             //   HttpSession session=request.getSession();
+              //  session.setAttribute("userid",request.getParameter("_name") );
                // session.setAttribute("user_email",rs.getString("emailid"));
                 
               //  System.out.println(">>>>>>>"+session.getAttribute("userid"));
-                //response.sendRedirect("userHome.jsp");
-            } else {
-                response.sendRedirect("getKey.jsp?msg=You does not own this file..");
+             //   response.sendRedirect("userHome.jsp");
+             
+                }
             }
+                else 
+            {
+                                  response.sendRedirect("decryptFile.jsp?msg=Key is not matched :(");
+
+                 //out.println("poor");
+            //   File f = new File("E:\\Netbeans Projects\\animals\\");
+             //   fileList = f.list();
+              //  for (int i = 0; i < fileList.length; i++) 
+                                  {
+               //     out.print(fileList[i]);
+                //    out.print(",");
+            }
+            }
+                out.flush();
+            out.close();
         }catch(Exception e){
             e.printStackTrace();
-        }
+        }       
+       
     }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
