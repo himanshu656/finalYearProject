@@ -47,41 +47,37 @@ public class FileSearching extends HttpServlet {
             int tagLen = tagArr.length;
             int count1 = 0, count2 = 0,count3=0;
             for (int i = 0; i < tagLen; i++) {
-                if (tagArr[i].equals("bird")) {
-                    count1++;
-                }
-                if (tagArr[i].equals("small")) {
-                    count1++;
-                }
-                if (tagArr[i].equals("sweet")) {
-                    count1++;
-                }
-                if (tagArr[i].equals("fly")) {
-                    count1++;
-                }
-                if (tagArr[i].equals("animal")) {
-                    count2++;
-                }
-                if (tagArr[i].equals("walk")) {
-                    count2++;
-                }
-                if (tagArr[i].equals("big")) {
-                    count2++;
-                }
-                if (tagArr[i].equals("four legs")) {
-                    count2++;
-                }
+                 if(tagArr[i].equals("physics")||tagArr[i].equals("gravitation")||tagArr[i].equals("kinematics")||
+                         tagArr[i].equals("thermodynamics")||tagArr[i].equals("mechanics")||tagArr[i].equals("energy")||
+                         tagArr[i].equals("light")||tagArr[i].equals("wave")||tagArr[i].equals("particle")||
+                         tagArr[i].equals("nuclear")||tagArr[i].equals("velocity")||tagArr[i].equals("rotation")||
+                         tagArr[i].equals("potential")||tagArr[i].equals("kinetic")||tagArr[i].equals("newton"))
+                      {
+                          count1++;                                                    
+                      }
+                      else if(tagArr[i].equals("animal")||tagArr[i].equals("calculus")||tagArr[i].equals("differentiation")||tagArr[i].equals("integration")||
+                              tagArr[i].equals("addition")||tagArr[i].equals("substraction")||tagArr[i].equals("division")||tagArr[i].equals("multiplication")||
+                              tagArr[i].equals("circle")||tagArr[i].equals("square")||tagArr[i].equals("triangle")||tagArr[i].equals("rectangle")||
+                              tagArr[i].equals("algebra")||tagArr[i].equals("trigonometry")||tagArr[i].equals("coordinates")||tagArr[i].equals("geometry")||
+                              tagArr[i].equals("probability")||tagArr[i].equals("permutation")||tagArr[i].equals("combination")||tagArr[i].equals("matrix")||
+                              tagArr[i].equals("determinant")||tagArr[i].equals("complex")||tagArr[i].equals("iota")||tagArr[i].equals("imaginary")||
+                              tagArr[i].equals("axis")||tagArr[i].equals("graphs")||tagArr[i].equals("binomial")||tagArr[i].equals("theorem")||
+                              tagArr[i].equals("quadratic")||tagArr[i].equals("terms")||tagArr[i].equals("progression")||tagArr[i].equals("parallel")||
+                              tagArr[i].equals("perpendicular"))
+                      {
+                          count2++;                         
+                      }
             }
             String[] fileList = null;
             if (count1 >= count2) {
-                File f = new File("C:\\Cloud\\birds\\");
+                File f = new File("C:\\Cloud\\physics\\");
                 fileList = f.list();
                 for (int i = 0; i < fileList.length; i++) {
                     out.print(fileList[i]);
                     out.print(",");
                 }
             } else if (count1 < count2) {
-                File f = new File("C:\\Cloud\\animals\\");
+                File f = new File("C:\\Cloud\\maths\\");
                 fileList = f.list();
                 for (int i = 0; i < fileList.length; i++) {
                     out.print(fileList[i]);

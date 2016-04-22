@@ -59,7 +59,7 @@ public class FileOwner extends HttpServlet {
                   String user=rs.getString(7);
                   out.println(email+"jhhgj");
                   out.println(user);
-                  response.sendRedirect("FileOwner.jsp?msg=User name is : "+user+"  and Email Address is : "+email+"");
+                  response.sendRedirect("FileOwner.jsp?msg=File Owner is : "+user+"  and Email Address is : "+email+"");
                 
             }
                 else 

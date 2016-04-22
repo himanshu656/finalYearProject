@@ -113,38 +113,26 @@ public class UploadActions extends HttpServlet {
            
             for(int i=0;i<tagLen;i++)
             {
-                 if(tagArr[i].equals("bird"))
-                {
-                    count1++;                   
-                }
-                 if(tagArr[i].equals("wings"))
-                {
-                    count1++;
-                }
-                 if(tagArr[i].equals("sweet"))
-                {
-                    count1++;
-                }
-                 if(tagArr[i].equals("fly"))
-                {
-                    count1++;
-                }
-               if (tagArr[i].equals("animal"))
-                {
-                    count2++;
-                }
-                if (tagArr[i].equals("walk"))
-                {
-                    count2++;
-                }
-                if(tagArr[i].equals("big"))
-                {
-                    count2++;
-                }
-                if(tagArr[i].equals("four legs"))
-                {
-                    count2++;
-                }
+                if(tagArr[i].equals("physics")||tagArr[i].equals("gravitation")||tagArr[i].equals("kinematics")||
+                              tagArr[i].equals("thermodynamics")||tagArr[i].equals("mechanics")||tagArr[i].equals("energy")||
+                              tagArr[i].equals("light")||tagArr[i].equals("wave")||tagArr[i].equals("particle")||
+                              tagArr[i].equals("nuclear")||tagArr[i].equals("velocity")||tagArr[i].equals("rotation")||
+                              tagArr[i].equals("potential")||tagArr[i].equals("kinetic")||tagArr[i].equals("newton"))
+                      {
+                          count1++;                                                    
+                      }
+                      else if(tagArr[i].equals("animal")||tagArr[i].equals("calculus")||tagArr[i].equals("differentiation")||tagArr[i].equals("ntegration")||
+                              tagArr[i].equals("addition")||tagArr[i].equals("substraction")||tagArr[i].equals("division")||tagArr[i].equals("multiplication")||
+                              tagArr[i].equals("circle")||tagArr[i].equals("quare")||tagArr[i].equals("riangle")||tagArr[i].equals("pascal")||
+                                     tagArr[i].equals("algebra")||tagArr[i].equals("trigonometry")||tagArr[i].equals("coordinate")||tagArr[i].equals("geometry")||
+                                      tagArr[i].equals("probability")||tagArr[i].equals("ermutation")||tagArr[i].equals("combination")||tagArr[i].equals("matrix")||
+                                      tagArr[i].equals("determinant")||tagArr[i].equals("complex")||tagArr[i].equals("iota")||tagArr[i].equals("maginary")||
+                                      tagArr[i].equals("axis")||tagArr[i].equals("graphs")||tagArr[i].equals("binomial")||tagArr[i].equals("theorem")||
+                                      tagArr[i].equals("quadratic")||tagArr[i].equals("terms")||tagArr[i].equals("progression")||tagArr[i].equals("parallel")||
+                                      tagArr[i].equals("perpendicular"))
+                      {
+                          count2++;                         
+                      }
             }
                        
             String sql1 = "select * from transaction where filename='" + item.getName() + "'";
@@ -192,7 +180,7 @@ public class UploadActions extends HttpServlet {
             //source = new File("C:\\Users\\User\\Desktop\\MyFiles\\"+fileName);
             if(count1>count2)
             {
-                eoutput=new File("C:\\Cloud\\birds\\"+fileName);
+                eoutput=new File("C:\\Cloud\\physics\\"+fileName);
                 destination= new File("E:\\makeshift\\"+fileName);
                 try{
                    FileUtils.copyFile(input, destination);
@@ -200,7 +188,7 @@ public class UploadActions extends HttpServlet {
             }
             else
             {
-                eoutput=new File("C:\\Cloud\\animals\\"+fileName);
+                eoutput=new File("C:\\Cloud\\maths\\"+fileName);
                 destination= new File("E:\\makeshift\\"+fileName);
                 try{
                      FileUtils.copyFile(input, destination);
@@ -230,7 +218,7 @@ public class UploadActions extends HttpServlet {
                         //if (client.uploadFile(item.getInputStream())){
                         user = (String) request.getSession().getAttribute("userid");
                         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + user);
-                        String sq2 = "insert into transaction values('"+fileName +"','Success','"+cld+"',now(),'Upload','"+user+"')";
+                        String sq2 = "insert into transaction values('"+fileName +"','Success',now(),'Upload','"+user+"')";
                         pstm1 = (PreparedStatement) con.prepareStatement(sq2);
                         pstm1.executeUpdate();
                                
@@ -253,7 +241,7 @@ public class UploadActions extends HttpServlet {
            
            out.print(""+tags);
            String pyarakey=(String)se.getAttribute("pyarakey");
-           user=rs1.getString("uname");
+           //user=rs1.getString("uname");
            se.setAttribute("user_Name",user);
            
       //     String sql="select * from csp_data where file_name='"+file_name+"'";

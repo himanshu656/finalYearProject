@@ -41,21 +41,33 @@ public class FileDataFetcher extends HttpServlet {
                int count1=0,count2=0;
                for(int i=0;i<fileTags.length;i++)
                {
-                      if(fileTags[i].equals("bird")||fileTags[i].equals("fly")||fileTags[i].equals("small"))
+                      if(fileTags[i].equals("physics")||fileTags[i].equals("gravitation")||fileTags[i].equals("kinematics")||
+                         fileTags[i].equals("thermodynamics")||fileTags[i].equals("mechanics")||fileTags[i].equals("energy")||
+                         fileTags[i].equals("light")||fileTags[i].equals("wave")||fileTags[i].equals("particle")||
+                         fileTags[i].equals("nuclear")||fileTags[i].equals("velocity")||fileTags[i].equals("rotation")||
+                         fileTags[i].equals("potential")||fileTags[i].equals("kinetic")||fileTags[i].equals("newton"))
                       {
                           count1++;                                                    
                       }
-                      else if(fileTags[i].equals("animal")||fileTags[i].equals("walk")||fileTags[i].equals("big"))
+                      else if(fileTags[i].equals("animal")||fileTags[i].equals("calculus")||fileTags[i].equals("differentiation")||fileTags[i].equals("integration")||
+                              fileTags[i].equals("addition")||fileTags[i].equals("substraction")||fileTags[i].equals("division")||fileTags[i].equals("multiplication")||
+                              fileTags[i].equals("circle")||fileTags[i].equals("square")||fileTags[i].equals("triangle")||fileTags[i].equals("rectangle")||
+                              fileTags[i].equals("algebra")||fileTags[i].equals("trigonometry")||fileTags[i].equals("coordinates")||fileTags[i].equals("geometry")||
+                              fileTags[i].equals("probability")||fileTags[i].equals("permutation")||fileTags[i].equals("combination")||fileTags[i].equals("matrix")||
+                              fileTags[i].equals("determinant")||fileTags[i].equals("complex")||fileTags[i].equals("iota")||fileTags[i].equals("imaginary")||
+                              fileTags[i].equals("axis")||fileTags[i].equals("graphs")||fileTags[i].equals("binomial")||fileTags[i].equals("theorem")||
+                              fileTags[i].equals("quadratic")||fileTags[i].equals("terms")||fileTags[i].equals("progression")||fileTags[i].equals("parallel")||
+                              fileTags[i].equals("perpendicular"))
                       {
                           count2++;                         
                       }
                } 
                if(count1>=count2)
                {
-                   fname="birds/"+strArr[1];
+                   fname="physics/"+strArr[1];
                }
                else{
-                    fname="animals/"+strArr[1];
+                    fname="maths/"+strArr[1];
                }
                String file_loc= "C:\\Cloud\\"+fname;
             File my_file = new File(file_loc);
