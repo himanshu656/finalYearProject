@@ -36,14 +36,27 @@ public class FileDataFetcher extends HttpServlet {
         response.setHeader("Content-disposition", "attachment; filename=" + fileName);
         try (PrintWriter pw = response.getWriter()) {
                String[] strArr=fileName.split("/");
+               String[] fileTags=strArr[0].split(" ");
                String fname="";
-                      if(strArr[0].equals("bird")||strArr[0]=="fly"||strArr[0]=="sweet"){
-                          fname="birds/"+strArr[1];
-                          
+               int count1=0,count2=0;
+               for(int i=0;i<fileTags.length;i++)
+               {
+                      if(fileTags[i].equals("bird")||fileTags[i].equals("fly")||fileTags[i].equals("small"))
+                      {
+                          count1++;                                                    
                       }
-                      else
-                          fname="animals/"+strArr[1];
-                      
+                      else if(fileTags[i].equals("animal")||fileTags[i].equals("walk")||fileTags[i].equals("big"))
+                      {
+                          count2++;                         
+                      }
+               } 
+               if(count1>=count2)
+               {
+                   fname="birds/"+strArr[1];
+               }
+               else{
+                    fname="animals/"+strArr[1];
+               }
                String file_loc= "C:\\Cloud\\"+fname;
             File my_file = new File(file_loc);
             //out.println(strArr[0]+","+strArr[1]);
