@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -34,8 +35,19 @@ public class FileDataFetcher extends HttpServlet {
         String fileName = request.getParameter("fileName");
         response.setHeader("Content-disposition", "attachment; filename=" + fileName);
         try (PrintWriter pw = response.getWriter()) {
-
-            File my_file = new File("C:\\Cloud\\birds\\" + fileName);
+               String[] strArr=fileName.split("/");
+               String fname="";
+                      if(strArr[0].equals("bird")||strArr[0]=="fly"||strArr[0]=="sweet"){
+                          fname="birds/"+strArr[1];
+                          
+                      }
+                      else
+                          fname="animals/"+strArr[1];
+                      
+               String file_loc= "C:\\Cloud\\"+fname;
+            File my_file = new File(file_loc);
+            //out.println(strArr[0]+","+strArr[1]);
+            
             FileInputStream in = new FileInputStream(my_file);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             String line;

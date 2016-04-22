@@ -45,12 +45,12 @@ public class FileSearching extends HttpServlet {
             //out.println(Arrays.toString(tagArr));
 
             int tagLen = tagArr.length;
-            int count1 = 0, count2 = 0;
+            int count1 = 0, count2 = 0,count3=0;
             for (int i = 0; i < tagLen; i++) {
                 if (tagArr[i].equals("bird")) {
                     count1++;
                 }
-                if (tagArr[i].equals("wings")) {
+                if (tagArr[i].equals("small")) {
                     count1++;
                 }
                 if (tagArr[i].equals("sweet")) {

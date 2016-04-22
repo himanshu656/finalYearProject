@@ -23,10 +23,13 @@ $(document).ready(function(){
             success:function(result){
                 var names = result.split(",");
                 console.log(names);
-                var s ='<table>';
+                $("#t1").remove();
+                var s ='<table id="t1">';
                 for(var i = 0 ; i < names.length-1; i++){
                     console.log(names[i]);
-                    s+= "<tr><td>"+names[i]+"</td><td><a href= '/FtpNew/FileDataFetcher?fileName="+names[i]+"'>download</a></td></tr>";
+                    console.log($("#search").val().trim()+"+"+names[i]);
+                    var x = $("#search").val().trim()+"/"+names[i];
+                    s+= "<tr><td>"+names[i]+"</td><td><a href= '/FtpNew/FileDataFetcher?fileName="+x+"'>download</a></td></tr>";
                 }
                 s+= '</table>';
                 $(".bdy").append(s);
