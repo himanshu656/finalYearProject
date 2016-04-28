@@ -55,7 +55,7 @@ public class FileSearching extends HttpServlet {
                       {
                           count1++;                                                    
                       }
-                      else if(tagArr[i].equals("animal")||tagArr[i].equals("calculus")||tagArr[i].equals("differentiation")||tagArr[i].equals("integration")||
+                      else if(tagArr[i].equals("maths")||tagArr[i].equals("calculus")||tagArr[i].equals("differentiation")||tagArr[i].equals("integration")||
                               tagArr[i].equals("addition")||tagArr[i].equals("substraction")||tagArr[i].equals("division")||tagArr[i].equals("multiplication")||
                               tagArr[i].equals("circle")||tagArr[i].equals("square")||tagArr[i].equals("triangle")||tagArr[i].equals("rectangle")||
                               tagArr[i].equals("algebra")||tagArr[i].equals("trigonometry")||tagArr[i].equals("coordinates")||tagArr[i].equals("geometry")||
@@ -70,14 +70,14 @@ public class FileSearching extends HttpServlet {
             }
             String[] fileList = null;
             if (count1 >= count2) {
-                File f = new File("C:\\Cloud\\physics\\");
+                File f = new File("C:\\Users\\Himanshu Joshi\\Dropbox\\physics\\");
                 fileList = f.list();
                 for (int i = 0; i < fileList.length; i++) {
                     out.print(fileList[i]);
                     out.print(",");
                 }
             } else if (count1 < count2) {
-                File f = new File("C:\\Cloud\\maths\\");
+                File f = new File("C:\\Users\\Himanshu Joshi\\Dropbox\\maths\\");
                 fileList = f.list();
                 for (int i = 0; i < fileList.length; i++) {
                     out.print(fileList[i]);

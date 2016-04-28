@@ -3,12 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/E:/Netbeans%20Projects/FtpNew/src/java/com/Action/FileDownload.java</file>
             <file>file:/E:/Netbeans%20Projects/FtpNew/src/java/com/Action/DecryptFile.java</file>
-            <file>file:/E:/Netbeans%20Projects/FtpNew/web/FileOwner.jsp</file>
-            <file>file:/E:/Netbeans%20Projects/FtpNew/src/java/com/Action/UploadActions.java</file>
-            <file>file:/E:/Netbeans%20Projects/FtpNew/web/Insert_tags.jsp</file>
+            <file>file:/E:/Netbeans%20Projects/FtpNew/src/java/com/Action/FileDecryFetcher.java</file>
+            <file>file:/E:/Netbeans%20Projects/FtpNew/web/cloudDetails.jsp</file>
+            <file>file:/E:/Netbeans%20Projects/FtpNew/web/viewTrans.jsp</file>
+            <file>file:/E:/Netbeans%20Projects/FtpNew/web/userLogin.jsp</file>
+            <file>file:/E:/Netbeans%20Projects/FtpNew/web/updateCloud.jsp</file>
+            <file>file:/E:/Netbeans%20Projects/FtpNew/web/userHome.jsp</file>
             <file>file:/E:/Netbeans%20Projects/FtpNew/web/decryptFile.jsp</file>
-            <file>file:/E:/Netbeans%20Projects/FtpNew/web/myDownload.jsp</file>
+            <file>file:/E:/Netbeans%20Projects/FtpNew/src/java/com/Action/FileDataFetcher.java</file>
+            <file>file:/E:/Netbeans%20Projects/FtpNew/src/java/com/AES.java</file>
         </group>
     </open-files>
 </project-private>

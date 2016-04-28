@@ -64,7 +64,8 @@ public class FileOwner extends HttpServlet {
             }
                 else 
             {
-             out.println("2");                     response.sendRedirect("FileOwner.jsp?msg=File does not exist in cloud");
+             out.println("2");                    
+             response.sendRedirect("FileOwner.jsp?msg=File does not exist in cloud");
 
              
             }

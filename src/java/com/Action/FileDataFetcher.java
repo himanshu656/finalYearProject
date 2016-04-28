@@ -49,7 +49,7 @@ public class FileDataFetcher extends HttpServlet {
                       {
                           count1++;                                                    
                       }
-                      else if(fileTags[i].equals("animal")||fileTags[i].equals("calculus")||fileTags[i].equals("differentiation")||fileTags[i].equals("integration")||
+                      else if(fileTags[i].equals("maths")||fileTags[i].equals("calculus")||fileTags[i].equals("differentiation")||fileTags[i].equals("integration")||
                               fileTags[i].equals("addition")||fileTags[i].equals("substraction")||fileTags[i].equals("division")||fileTags[i].equals("multiplication")||
                               fileTags[i].equals("circle")||fileTags[i].equals("square")||fileTags[i].equals("triangle")||fileTags[i].equals("rectangle")||
                               fileTags[i].equals("algebra")||fileTags[i].equals("trigonometry")||fileTags[i].equals("coordinates")||fileTags[i].equals("geometry")||
@@ -69,7 +69,7 @@ public class FileDataFetcher extends HttpServlet {
                else{
                     fname="maths/"+strArr[1];
                }
-               String file_loc= "C:\\Cloud\\"+fname;
+               String file_loc= "C:\\Users\\Himanshu Joshi\\Dropbox\\"+fname;
             File my_file = new File(file_loc);
             //out.println(strArr[0]+","+strArr[1]);
             

@@ -121,7 +121,7 @@ public class UploadActions extends HttpServlet {
                       {
                           count1++;                                                    
                       }
-                      else if(tagArr[i].equals("animal")||tagArr[i].equals("calculus")||tagArr[i].equals("differentiation")||tagArr[i].equals("ntegration")||
+                      else if(tagArr[i].equals("maths")||tagArr[i].equals("calculus")||tagArr[i].equals("differentiation")||tagArr[i].equals("ntegration")||
                               tagArr[i].equals("addition")||tagArr[i].equals("substraction")||tagArr[i].equals("division")||tagArr[i].equals("multiplication")||
                               tagArr[i].equals("circle")||tagArr[i].equals("quare")||tagArr[i].equals("riangle")||tagArr[i].equals("pascal")||
                                      tagArr[i].equals("algebra")||tagArr[i].equals("trigonometry")||tagArr[i].equals("coordinate")||tagArr[i].equals("geometry")||
@@ -180,7 +180,7 @@ public class UploadActions extends HttpServlet {
             //source = new File("C:\\Users\\User\\Desktop\\MyFiles\\"+fileName);
             if(count1>count2)
             {
-                eoutput=new File("C:\\Cloud\\physics\\"+fileName);
+                eoutput=new File("C:\\Users\\Himanshu Joshi\\Dropbox\\physics\\"+fileName);
                 destination= new File("E:\\makeshift\\"+fileName);
                 try{
                    FileUtils.copyFile(input, destination);
@@ -188,7 +188,7 @@ public class UploadActions extends HttpServlet {
             }
             else
             {
-                eoutput=new File("C:\\Cloud\\maths\\"+fileName);
+                eoutput=new File("C:\\Users\\Himanshu Joshi\\Dropbox\\maths\\"+fileName);
                 destination= new File("E:\\makeshift\\"+fileName);
                 try{
                      FileUtils.copyFile(input, destination);

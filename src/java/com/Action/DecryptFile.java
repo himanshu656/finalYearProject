@@ -83,7 +83,7 @@ public class DecryptFile extends HttpServlet {
             }
                 else 
             {
-                                  response.sendRedirect("decryptFile.jsp?msg=Key is not matched :(");
+                                  response.sendRedirect("decryptFile.jsp?msg=Either Key is not matched or file is not stored");
 
                  //out.println("poor");
             //   File f = new File("E:\\Netbeans Projects\\animals\\");
